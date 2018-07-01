@@ -3,6 +3,8 @@ Protected Class App
 Inherits Application
 	#tag Event
 		Sub Open()
+		  
+		  
 		  // check for databases present...if none, create them...else, use them.
 		  
 		  // drugs.sqlite
@@ -40,6 +42,11 @@ Inherits Application
 		  
 		End Sub
 	#tag EndEvent
+
+
+	#tag Property, Flags = &h0
+		idTargetDrug As Integer
+	#tag EndProperty
 
 
 	#tag Constant, Name = kEditClear, Type = String, Dynamic = False, Default = \"&Delete", Scope = Public

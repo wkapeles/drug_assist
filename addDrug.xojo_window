@@ -905,7 +905,7 @@ End
 
 #tag WindowCode
 	#tag Method, Flags = &h0
-		Function addRecord(name_generic As Text, moa As Text, classT As Text, notes As Text, name_trade As Text, ind As String, con As String, se As String, dos As String) As Boolean
+		Function addRecord(name_generic As Text, moa As Text, classT As Text, notes As Text, name_trade As Text, ind As String, con As String, se As String, dos As String, scs As String) As Boolean
 		  Dim dbFile As FolderItem
 		  Dim db As New SQLiteDatabase
 		  dbFile = GetFolderItem("drugs.sqlite")
@@ -1018,10 +1018,25 @@ End
 		    
 		    // create the doses
 		    Dim doses() As String = Split(dos,",")
-		    For d As Integer= 0 To indications.ubound
+		    For d As Integer= 0 To doses.ubound
 		      db.SQLExecute("BEGIN TRANSACTION")
 		      Dim sqlDos As String = "INSERT INTO dose (dose, id_drug_fk) VALUES ('"+ doses(d) +"','"+ idDrug +"');"
 		      db.SQLExecute(sqlDos)
+		      If db.Error Then
+		        MsgBox("Error: " + db.ErrorMessage)
+		        db.Rollback
+		        Return False
+		      Else
+		        db.Commit
+		      End If
+		    Next
+		    
+		    // create the doses
+		    Dim scslist() As String = Split(scs,",")
+		    For v As Integer= 0 To scslist.ubound
+		      db.SQLExecute("BEGIN TRANSACTION")
+		      Dim sqlscs As String = "INSERT INTO sc (special_condition, id_drug_fk) VALUES ('"+ scslist(v) +"','"+ idDrug +"');"
+		      db.SQLExecute(sqlscs)
 		      If db.Error Then
 		        MsgBox("Error: " + db.ErrorMessage)
 		        db.Rollback
@@ -1089,7 +1104,7 @@ End
 		  End If
 		  
 		  // Add record to database
-		  Dim t As Boolean = addRecord(genericnameT.Text.ToText, moat.Text.ToText, classT.Text.ToText, notesTA.Text.ToText, tradeNameT.Text.ToText, indTA.Text, conTA.Text, seTA.Text, dosTA.Text)
+		  Dim t As Boolean = addRecord(genericnameT.Text.ToText, moat.Text.ToText, classT.Text.ToText, notesTA.Text.ToText, tradeNameT.Text.ToText, indTA.Text, conTA.Text, seTA.Text, dosTA.Text,scTA.Text)
 		  Self.Close
 		  drug_main.Show
 		  

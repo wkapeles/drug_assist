@@ -9,7 +9,7 @@ Begin Window drug_main
    FullScreen      =   False
    FullScreenButton=   False
    HasBackColor    =   False
-   Height          =   400
+   Height          =   367
    ImplicitInstance=   True
    LiveResize      =   True
    MacProcID       =   0
@@ -25,7 +25,7 @@ Begin Window drug_main
    Resizeable      =   True
    Title           =   "Paramedic Drug Assistant"
    Visible         =   True
-   Width           =   600
+   Width           =   550
    Begin Label Label1
       AutoDeactivate  =   True
       Bold            =   False
@@ -126,7 +126,7 @@ Begin Window drug_main
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   437
+      Left            =   387
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -158,7 +158,7 @@ Begin Window drug_main
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   437
+      Left            =   387
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -171,7 +171,7 @@ Begin Window drug_main
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   359
+      Top             =   327
       Transparent     =   False
       Underline       =   False
       Visible         =   True
@@ -190,7 +190,7 @@ Begin Window drug_main
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   437
+      Left            =   387
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -203,7 +203,71 @@ Begin Window drug_main
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   65
+      Top             =   94
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   143
+   End
+   Begin PushButton flashCardB
+      AutoDeactivate  =   True
+      Bold            =   False
+      ButtonStyle     =   "0"
+      Cancel          =   False
+      Caption         =   "Flash Card Testing"
+      Default         =   False
+      Enabled         =   False
+      Height          =   20
+      HelpTag         =   "Click here to activate the flash card testing function.  Random questions about your drugs will be presented.  You will think through the answer and then click ""Check"" to see if you are correct.  Examples of questions include:\n\n1. What are the indications for metoprolol?\n\n2. What is the MOA of albuterol?"
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   387
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Scope           =   0
+      TabIndex        =   6
+      TabPanelIndex   =   0
+      TabStop         =   True
+      TextFont        =   "System"
+      TextSize        =   0.0
+      TextUnit        =   0
+      Top             =   126
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   143
+   End
+   Begin PushButton detailViewB
+      AutoDeactivate  =   True
+      Bold            =   False
+      ButtonStyle     =   "0"
+      Cancel          =   False
+      Caption         =   "View/Edit Selected"
+      Default         =   False
+      Enabled         =   True
+      Height          =   20
+      HelpTag         =   "Click here to view or edit the details of the selected drug."
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   387
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Scope           =   0
+      TabIndex        =   7
+      TabPanelIndex   =   0
+      TabStop         =   True
+      TextFont        =   "System"
+      TextSize        =   0.0
+      TextUnit        =   0
+      Top             =   62
       Transparent     =   False
       Underline       =   False
       Visible         =   True
@@ -366,6 +430,52 @@ End
 		  c.show
 		  
 		  
+		  
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events flashCardB
+	#tag Event
+		Sub Action()
+		  If drugsLB.ListIndex = -1 Then
+		    MsgBox ("Error - you must select a drug before you can delete it.")
+		    Return
+		  End If
+		  
+		  Dim c As New confirmWindow
+		  c.show
+		  
+		  
+		  
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events detailViewB
+	#tag Event
+		Sub Action()
+		  If drugsLB.ListIndex = -1 Then
+		    MsgBox ("Error - you must select a drug before you can view or edit it.")
+		    Return
+		  End If
+		  
+		  
+		  Dim p As Text = drugsLB.Cell(drugsLB.ListIndex, 0).ToText
+		  
+		  // get drug id
+		  Dim id As Integer
+		  Dim dbFile As FolderItem
+		  Dim db As New SQLiteDatabase
+		  dbFile = GetFolderItem("drugs.sqlite")
+		  db.DatabaseFile = dbFile
+		  If db.Connect Then
+		    Dim rsID As RecordSet = db.SQLSelect("SELECT id_reference FROM drugs WHERE name_generic ='"+ p +"';")
+		    id = Integer.FromText(rsID.IdxField(1).StringValue.ToText)
+		  End If
+		  
+		  app.idTargetDrug = id
+		  
+		  Dim d As New drugDetail
+		  d.show
 		  
 		End Sub
 	#tag EndEvent
