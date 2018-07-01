@@ -177,6 +177,38 @@ Begin Window drug_main
       Visible         =   True
       Width           =   143
    End
+   Begin PushButton deleteB
+      AutoDeactivate  =   True
+      Bold            =   False
+      ButtonStyle     =   "0"
+      Cancel          =   False
+      Caption         =   "Delete Selected"
+      Default         =   False
+      Enabled         =   True
+      Height          =   20
+      HelpTag         =   "Click here to add a drug to your list."
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   437
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Scope           =   0
+      TabIndex        =   5
+      TabPanelIndex   =   0
+      TabStop         =   True
+      TextFont        =   "System"
+      TextSize        =   0.0
+      TextUnit        =   0
+      Top             =   65
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   143
+   End
 End
 #tag EndWindow
 
@@ -242,6 +274,14 @@ End
 	#tag Event
 		Sub Action()
 		  Quit
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events deleteB
+	#tag Event
+		Sub Action()
+		  Dim d As New addDrug
+		  d.Show
 		End Sub
 	#tag EndEvent
 #tag EndEvents

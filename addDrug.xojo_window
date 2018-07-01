@@ -46,7 +46,7 @@ Begin Window addDrug
       LockRight       =   False
       LockTop         =   True
       Scope           =   0
-      TabIndex        =   0
+      TabIndex        =   11
       TabPanelIndex   =   0
       TabStop         =   True
       TextFont        =   "System"
@@ -78,7 +78,7 @@ Begin Window addDrug
       LockRight       =   False
       LockTop         =   True
       Scope           =   0
-      TabIndex        =   1
+      TabIndex        =   12
       TabPanelIndex   =   0
       TabStop         =   True
       TextFont        =   "System"
@@ -104,7 +104,7 @@ Begin Window addDrug
       Enabled         =   True
       Format          =   ""
       Height          =   22
-      HelpTag         =   ""
+      HelpTag         =   "Drug's generic name goes here.  Ex: metoprolol, not Lopressor"
       Index           =   -2147483648
       Italic          =   False
       Left            =   133
@@ -118,7 +118,7 @@ Begin Window addDrug
       Password        =   False
       ReadOnly        =   False
       Scope           =   0
-      TabIndex        =   2
+      TabIndex        =   1
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   ""
@@ -147,7 +147,7 @@ Begin Window addDrug
       Enabled         =   True
       Format          =   ""
       Height          =   22
-      HelpTag         =   ""
+      HelpTag         =   "Drug's trade name goes here.  Ex: Lopressor, not metoprolol"
       Index           =   -2147483648
       Italic          =   False
       Left            =   133
@@ -161,7 +161,7 @@ Begin Window addDrug
       Password        =   False
       ReadOnly        =   False
       Scope           =   0
-      TabIndex        =   3
+      TabIndex        =   2
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   ""
@@ -190,7 +190,7 @@ Begin Window addDrug
       Enabled         =   True
       Format          =   ""
       Height          =   22
-      HelpTag         =   ""
+      HelpTag         =   "Drug class goes here.  Ex: narcotic analgesic."
       Index           =   -2147483648
       Italic          =   False
       Left            =   133
@@ -204,7 +204,7 @@ Begin Window addDrug
       Password        =   False
       ReadOnly        =   False
       Scope           =   0
-      TabIndex        =   4
+      TabIndex        =   3
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   ""
@@ -233,7 +233,7 @@ Begin Window addDrug
       Enabled         =   True
       Format          =   ""
       Height          =   22
-      HelpTag         =   ""
+      HelpTag         =   "Mechanism of action goes here."
       Index           =   -2147483648
       Italic          =   False
       Left            =   133
@@ -247,7 +247,7 @@ Begin Window addDrug
       Password        =   False
       ReadOnly        =   False
       Scope           =   0
-      TabIndex        =   5
+      TabIndex        =   4
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   ""
@@ -266,7 +266,7 @@ Begin Window addDrug
       AcceptTabs      =   False
       Alignment       =   0
       AutoDeactivate  =   True
-      AutomaticallyCheckSpelling=   True
+      AutomaticallyCheckSpelling=   False
       BackColor       =   &cFFFFFF00
       Bold            =   False
       Border          =   True
@@ -275,7 +275,55 @@ Begin Window addDrug
       Enabled         =   True
       Format          =   ""
       Height          =   50
-      HelpTag         =   ""
+      HelpTag         =   "Enter as many indications as you want, separating each by a comma."
+      HideSelection   =   True
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   133
+      LimitText       =   0
+      LineHeight      =   0.0
+      LineSpacing     =   1.0
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Mask            =   ""
+      Multiline       =   True
+      ReadOnly        =   False
+      Scope           =   0
+      ScrollbarHorizontal=   False
+      ScrollbarVertical=   True
+      Styled          =   True
+      TabIndex        =   5
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   ""
+      TextColor       =   &c00000000
+      TextFont        =   "System"
+      TextSize        =   0.0
+      TextUnit        =   0
+      Top             =   140
+      Transparent     =   False
+      Underline       =   False
+      UseFocusRing    =   True
+      Visible         =   True
+      Width           =   345
+   End
+   Begin TextArea conTA
+      AcceptTabs      =   False
+      Alignment       =   0
+      AutoDeactivate  =   True
+      AutomaticallyCheckSpelling=   False
+      BackColor       =   &cFFFFFF00
+      Bold            =   False
+      Border          =   True
+      DataField       =   ""
+      DataSource      =   ""
+      Enabled         =   True
+      Format          =   ""
+      Height          =   50
+      HelpTag         =   "Enter as many contraindications as you want, separating each by a comma."
       HideSelection   =   True
       Index           =   -2147483648
       Italic          =   False
@@ -303,14 +351,14 @@ Begin Window addDrug
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   140
+      Top             =   197
       Transparent     =   False
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
       Width           =   345
    End
-   Begin TextArea conTA
+   Begin TextArea seTA
       AcceptTabs      =   False
       Alignment       =   0
       AutoDeactivate  =   True
@@ -323,7 +371,7 @@ Begin Window addDrug
       Enabled         =   True
       Format          =   ""
       Height          =   50
-      HelpTag         =   ""
+      HelpTag         =   "Enter as many side effects as you want, separating each by a comma."
       HideSelection   =   True
       Index           =   -2147483648
       Italic          =   False
@@ -351,14 +399,14 @@ Begin Window addDrug
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   198
+      Top             =   260
       Transparent     =   False
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
       Width           =   345
    End
-   Begin TextArea seTA
+   Begin TextArea scTA
       AcceptTabs      =   False
       Alignment       =   0
       AutoDeactivate  =   True
@@ -371,7 +419,7 @@ Begin Window addDrug
       Enabled         =   True
       Format          =   ""
       Height          =   50
-      HelpTag         =   ""
+      HelpTag         =   "Enter as many special cautions as you want, separating each by a comma."
       HideSelection   =   True
       Index           =   -2147483648
       Italic          =   False
@@ -399,18 +447,18 @@ Begin Window addDrug
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   256
+      Top             =   314
       Transparent     =   False
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
       Width           =   345
    End
-   Begin TextArea scTA
+   Begin TextArea dosTA
       AcceptTabs      =   False
       Alignment       =   0
       AutoDeactivate  =   True
-      AutomaticallyCheckSpelling=   True
+      AutomaticallyCheckSpelling=   False
       BackColor       =   &cFFFFFF00
       Bold            =   False
       Border          =   True
@@ -419,7 +467,7 @@ Begin Window addDrug
       Enabled         =   True
       Format          =   ""
       Height          =   50
-      HelpTag         =   ""
+      HelpTag         =   "Enter as many doses as you want, separating each by a comma."
       HideSelection   =   True
       Index           =   -2147483648
       Italic          =   False
@@ -440,54 +488,6 @@ Begin Window addDrug
       ScrollbarVertical=   True
       Styled          =   True
       TabIndex        =   9
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   ""
-      TextColor       =   &c00000000
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
-      Top             =   313
-      Transparent     =   False
-      Underline       =   False
-      UseFocusRing    =   True
-      Visible         =   True
-      Width           =   345
-   End
-   Begin TextArea dosTA
-      AcceptTabs      =   False
-      Alignment       =   0
-      AutoDeactivate  =   True
-      AutomaticallyCheckSpelling=   True
-      BackColor       =   &cFFFFFF00
-      Bold            =   False
-      Border          =   True
-      DataField       =   ""
-      DataSource      =   ""
-      Enabled         =   True
-      Format          =   ""
-      Height          =   50
-      HelpTag         =   ""
-      HideSelection   =   True
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   133
-      LimitText       =   0
-      LineHeight      =   0.0
-      LineSpacing     =   1.0
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      Mask            =   ""
-      Multiline       =   True
-      ReadOnly        =   False
-      Scope           =   0
-      ScrollbarHorizontal=   False
-      ScrollbarVertical=   True
-      Styled          =   True
-      TabIndex        =   10
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   ""
@@ -865,7 +865,7 @@ Begin Window addDrug
       Enabled         =   True
       Format          =   ""
       Height          =   50
-      HelpTag         =   ""
+      HelpTag         =   "Enter any notes you want about the drug here."
       HideSelection   =   True
       Index           =   -2147483648
       Italic          =   False
@@ -885,7 +885,7 @@ Begin Window addDrug
       ScrollbarHorizontal=   False
       ScrollbarVertical=   True
       Styled          =   True
-      TabIndex        =   21
+      TabIndex        =   10
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   ""
@@ -911,7 +911,14 @@ End
 		  dbFile = GetFolderItem("drugs.sqlite")
 		  db.DatabaseFile = dbFile
 		  If db.Connect Then
+		    
 		    // check to see if drug name exists in database.   If so, error and exit.
+		    Dim test As Boolean = existenceTest(name_generic)
+		    If test = True Then
+		      MsgBox ("Error - this drug already exists in the database.  Try editing it instead.  Otherwise, you must delete it before trying to add it again.")
+		      Return False
+		    End If
+		    
 		    
 		    
 		    // create drug record
@@ -1027,6 +1034,7 @@ End
 		    MsgBox ("Drug added successfully.")
 		    Self.Close
 		    drug_main.show
+		    drug_main.refreshDrugs
 		    Return True
 		    
 		  Else
@@ -1036,6 +1044,34 @@ End
 		  
 		  
 		  
+		  
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function existenceTest(name_generic As Text) As Boolean
+		  Dim dbFile As FolderItem
+		  Dim db As New SQLiteDatabase
+		  dbFile = GetFolderItem("drugs.sqlite")
+		  db.DatabaseFile = dbFile
+		  If db.Connect Then
+		    
+		    Dim rs As RecordSet
+		    rs = db.SQLSelect("SELECT name_generic FROM drugs WHERE name_generic = '"+ name_generic +"'")
+		    
+		    If db.Error Then
+		      MsgBox("Error: " + db.ErrorMessage)
+		      Return False
+		    End If
+		    
+		    If rs.RecordCount > 0 Then
+		      Return True
+		    Else
+		      Return False
+		    End If
+		  Else
+		    Return False
+		  End If
 		  
 		End Function
 	#tag EndMethod
