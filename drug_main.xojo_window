@@ -1,5 +1,5 @@
 #tag Window
-Begin Window Window1
+Begin Window drug_main
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
    CloseButton     =   True
