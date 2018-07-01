@@ -6,6 +6,13 @@ Begin Menu MainMenuBar
       Index = -2147483648
       AutoEnable = True
       Visible = True
+      Begin MenuItem resetItem
+         SpecialMenu = 0
+         Text = "Reset App"
+         Index = -2147483648
+         AutoEnable = True
+         Visible = True
+      End
       Begin QuitMenuItem FileQuit
          SpecialMenu = 0
          Text = "#App.kFileQuit"
@@ -90,6 +97,34 @@ Begin Menu MainMenuBar
          ShortcutKey = "A"
          Shortcut = "Cmd+A"
          MenuModifier = True
+         AutoEnable = True
+         Visible = True
+      End
+   End
+   Begin MenuItem HelpMenu
+      SpecialMenu = 0
+      Text = "Help"
+      Index = -2147483648
+      AutoEnable = True
+      Visible = True
+      Begin MenuItem HelpItem
+         SpecialMenu = 0
+         Text = "How to Use This App"
+         Index = -2147483648
+         AutoEnable = True
+         Visible = True
+      End
+   End
+   Begin MenuItem AboutMenu
+      SpecialMenu = 0
+      Text = "About"
+      Index = -2147483648
+      AutoEnable = True
+      Visible = True
+      Begin MenuItem AboutItem
+         SpecialMenu = 0
+         Text = "About Drug Assistant"
+         Index = -2147483648
          AutoEnable = True
          Visible = True
       End

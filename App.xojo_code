@@ -11,14 +11,15 @@ Inherits Application
 		  drugFile = GetFolderItem("drugs.sqlite")
 		  drugDB.DatabaseFile = drugFile
 		  If drugDB.Connect Then
+		    drug_main.show
+		    Return
 		  Else 
 		    Dim drugF As FolderItem
 		    drugF = New FolderItem("drugs.sqlite")
-		    
 		    Dim dF As New SQLiteDatabase
 		    dF.DatabaseFile = drugF
 		    If dF.CreateDatabaseFile Then
-		      dF.SQLExecute("CREATE TABLE drugs ( id_reference INTEGER PRIMARY KEY, name_generic TEXT, moa TEXT, notes TEXT );")
+		      dF.SQLExecute("CREATE TABLE drugs ( id_reference INTEGER PRIMARY KEY, name_generic TEXT, moa TEXT, class TEXT, notes TEXT );")
 		      dF.SQLExecute("CREATE TABLE trade_names ( id_reference INTEGER PRIMARY KEY, id_drug_fk INTEGER, name_trade TEXT);")
 		      dF.SQLExecute("CREATE TABLE ind ( id_reference INTEGER PRIMARY KEY, id_drug_fk INTEGER, indication TEXT );")
 		      dF.SQLExecute("CREATE TABLE con ( id_reference INTEGER PRIMARY KEY, id_drug_fk INTEGER, contraindication TEXT);")
@@ -32,6 +33,8 @@ Inherits Application
 		      Quit
 		    End If
 		  End If
+		  
+		  
 		  
 		  
 		  
@@ -54,5 +57,12 @@ Inherits Application
 	#tag EndConstant
 
 
+	#tag ViewBehavior
+		#tag ViewProperty
+			Name="showInstructions"
+			Group="Behavior"
+			Type="Integer"
+		#tag EndViewProperty
+	#tag EndViewBehavior
 End Class
 #tag EndClass
