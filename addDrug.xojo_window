@@ -915,81 +915,126 @@ End
 		    
 		    
 		    // create drug record
-		    If notes = Nil Then
-		      Dim notes As Text = "No notes entered."
+		    If notes = "" Then
+		      notes = "No notes entered."
 		    End If
 		    
 		    db.SQLExecute("BEGIN TRANSACTION")
-		    Dim sqlDrug As String = "INSERT INTO drugs (name_generic, moa, class, notes) VALUES ("+ name_generic +","+ moa +","+ classT +","+ notes +");"
+		    Dim sqlDrug As String = "INSERT INTO drugs (name_generic, moa, classofdrug, notes) VALUES ('"+ name_generic +"','"+ moa +"','"+ classT +"','"+ notes +"');"
 		    db.SQLExecute(sqlDrug)
 		    If db.Error Then
 		      MsgBox("Error: " + db.ErrorMessage)
 		      db.Rollback
+		      Return False
 		    Else
 		      db.Commit
 		    End If
 		    
 		    // get id for drug record
 		    Dim rsTN As RecordSet
-		    rsTN = db.SQLSelect("SELECT id_reference FROM drugs WHERE name_generic='"+ name_generic +"')
+		    rsTN = db.SQLSelect("SELECT id_reference FROM drugs WHERE name_generic='"+ name_generic +"'")
 		    
 		    If db.Error Then
 		      MsgBox("Error: " + db.ErrorMessage)
-		      Return
+		      Return False
 		    End If
 		    
-		    
+		    Dim idDrug As String
 		    If rsTN.RecordCount > 1 Then
 		      MsgBox ("Error - possible duplicate records found.  Unhandled exception.  Exiting.")
-		      Return
+		      Return False
 		    Else
-		      Dim idDrug As String
-		      While Not rs.EOF
+		      While Not rsTN.EOF
 		        idDrug = rsTN.IdxField(1).StringValue
 		        rsTN.MoveNext
 		      Wend
 		    End If
 		    
-		    // create the trade names
-		    db.SQLExecute("BEGIN TRANSACTION")
-		    Dim sqlDrug As String = "INSERT INTO trade_names (name_trade, id_drug_fk) VALUES ("+ name_trade +","+ idDrug +");"
-		    db.SQLExecute(sqlDrug)
-		    If db.Error Then
-		      MsgBox("Error: " + db.ErrorMessage)
-		      db.Rollback
-		    Else
-		      db.Commit
-		    End If
-		    
-		    // create the indications
-		    Dim indications() As Auto = Split(ind,",")
-		    For In As Integer= 0 To indications.ubound
+		    If name_trade <>"" Then
+		      // create the trade names
 		      db.SQLExecute("BEGIN TRANSACTION")
-		      Dim sqlDrug As String = "INSERT INTO ind (indication, id_drug_fk) VALUES ("+ indications(In) +","+ idDrug +");"
-		      db.SQLExecute(sqlDrug)
+		      Dim sqlTN As String = "INSERT INTO trade_names (name_trade, id_drug_fk) VALUES ('"+ name_trade +"','"+ idDrug +"');"
+		      db.SQLExecute(sqlTN)
 		      If db.Error Then
 		        MsgBox("Error: " + db.ErrorMessage)
 		        db.Rollback
+		        Return False
+		      Else
+		        db.Commit
+		      End If
+		    End If
+		    
+		    // create the indications
+		    Dim indications() As String = Split(ind,",")
+		    For i As Integer = 0 To indications.ubound
+		      db.SQLExecute("BEGIN TRANSACTION")
+		      Dim sqlInd As String = "INSERT INTO ind (indication, id_drug_fk) VALUES ('"+ indications(i) +"','"+ idDrug +"');"
+		      db.SQLExecute(sqlInd)
+		      If db.Error Then
+		        MsgBox("Error: " + db.ErrorMessage)
+		        db.Rollback
+		        Return False
 		      Else
 		        db.Commit
 		      End If
 		    Next
 		    
 		    // create the contraindications
-		    Dim contra() As Auto = Split(con,",")
+		    Dim contra() As String = Split(con,",")
+		    For c As Integer= 0 To contra.ubound
+		      db.SQLExecute("BEGIN TRANSACTION")
+		      Dim sqlCon As String = "INSERT INTO con (contraindication, id_drug_fk) VALUES ('"+ contra(c) +"','"+ idDrug +"');"
+		      db.SQLExecute(sqlCon)
+		      If db.Error Then
+		        MsgBox("Error: " + db.ErrorMessage)
+		        db.Rollback
+		        Return False
+		      Else
+		        db.Commit
+		      End If
+		    Next
 		    
 		    // create the side effects
-		    Dim effects() As Auto = Split(se,",")
+		    Dim effects() As String = Split(se,",")
+		    For e As Integer= 0 To effects.ubound
+		      db.SQLExecute("BEGIN TRANSACTION")
+		      Dim sqlEff As String = "INSERT INTO se (side_effect, id_drug_fk) VALUES ('"+ effects(e) +"','"+ idDrug +"');"
+		      db.SQLExecute(sqlEff)
+		      If db.Error Then
+		        MsgBox("Error: " + db.ErrorMessage)
+		        db.Rollback
+		        Return False
+		      Else
+		        db.Commit
+		      End If
+		    Next
 		    
 		    // create the doses
-		    Dim doses() As Auto = Split(dos,",")
+		    Dim doses() As String = Split(dos,",")
+		    For d As Integer= 0 To indications.ubound
+		      db.SQLExecute("BEGIN TRANSACTION")
+		      Dim sqlDos As String = "INSERT INTO dose (dose, id_drug_fk) VALUES ('"+ doses(d) +"','"+ idDrug +"');"
+		      db.SQLExecute(sqlDos)
+		      If db.Error Then
+		        MsgBox("Error: " + db.ErrorMessage)
+		        db.Rollback
+		        Return False
+		      Else
+		        db.Commit
+		      End If
+		    Next
 		    
+		    MsgBox ("Drug added successfully.")
+		    Self.Close
+		    drug_main.show
+		    Return True
 		    
 		  Else
 		    MsgBox ("Error connecting to database.")
+		    Return False
 		  End If
 		  
-		  Dim sql As String = "INSERT INTO results (last_name, first_name, idpa_number, division, bullet_weight, test1, test2, test3, pass) VALUES ('"+ lastName+"','"+ firstName +"','"+ idpa_number +"','"+ division +"','"+ bulletWeight.ToText +"','"+ test1.ToText +"','"+ test2.ToText +"','"+ test3.ToText +"','"+ pass +"');"
+		  
 		  
 		  
 		End Function
@@ -1008,9 +1053,10 @@ End
 		  End If
 		  
 		  // Add record to database
-		  Dim t As Boolean = addRecord
+		  Dim t As Boolean = addRecord(genericnameT.Text.ToText, moat.Text.ToText, classT.Text.ToText, notesTA.Text.ToText, tradeNameT.Text.ToText, indTA.Text, conTA.Text, seTA.Text, dosTA.Text)
 		  Self.Close
 		  drug_main.Show
+		  
 		  
 		  
 		End Sub
@@ -1024,3 +1070,229 @@ End
 		End Sub
 	#tag EndEvent
 #tag EndEvents
+#tag ViewBehavior
+	#tag ViewProperty
+		Name="Name"
+		Visible=true
+		Group="ID"
+		Type="String"
+		EditorType="String"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Interfaces"
+		Visible=true
+		Group="ID"
+		Type="String"
+		EditorType="String"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Super"
+		Visible=true
+		Group="ID"
+		Type="String"
+		EditorType="String"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Width"
+		Visible=true
+		Group="Size"
+		InitialValue="600"
+		Type="Integer"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Height"
+		Visible=true
+		Group="Size"
+		InitialValue="400"
+		Type="Integer"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MinWidth"
+		Visible=true
+		Group="Size"
+		InitialValue="64"
+		Type="Integer"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MinHeight"
+		Visible=true
+		Group="Size"
+		InitialValue="64"
+		Type="Integer"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MaxWidth"
+		Visible=true
+		Group="Size"
+		InitialValue="32000"
+		Type="Integer"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MaxHeight"
+		Visible=true
+		Group="Size"
+		InitialValue="32000"
+		Type="Integer"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Frame"
+		Visible=true
+		Group="Frame"
+		InitialValue="0"
+		Type="Integer"
+		EditorType="Enum"
+		#tag EnumValues
+			"0 - Document"
+			"1 - Movable Modal"
+			"2 - Modal Dialog"
+			"3 - Floating Window"
+			"4 - Plain Box"
+			"5 - Shadowed Box"
+			"6 - Rounded Window"
+			"7 - Global Floating Window"
+			"8 - Sheet Window"
+			"9 - Metal Window"
+			"11 - Modeless Dialog"
+		#tag EndEnumValues
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Title"
+		Visible=true
+		Group="Frame"
+		InitialValue="Untitled"
+		Type="String"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="CloseButton"
+		Visible=true
+		Group="Frame"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType="Boolean"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Resizeable"
+		Visible=true
+		Group="Frame"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType="Boolean"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MaximizeButton"
+		Visible=true
+		Group="Frame"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType="Boolean"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MinimizeButton"
+		Visible=true
+		Group="Frame"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType="Boolean"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="FullScreenButton"
+		Visible=true
+		Group="Frame"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType="Boolean"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Composite"
+		Group="OS X (Carbon)"
+		InitialValue="False"
+		Type="Boolean"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MacProcID"
+		Group="OS X (Carbon)"
+		InitialValue="0"
+		Type="Integer"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="ImplicitInstance"
+		Visible=true
+		Group="Behavior"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType="Boolean"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Placement"
+		Visible=true
+		Group="Behavior"
+		InitialValue="0"
+		Type="Integer"
+		EditorType="Enum"
+		#tag EnumValues
+			"0 - Default"
+			"1 - Parent Window"
+			"2 - Main Screen"
+			"3 - Parent Window Screen"
+			"4 - Stagger"
+		#tag EndEnumValues
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Visible"
+		Visible=true
+		Group="Behavior"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType="Boolean"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="LiveResize"
+		Group="Behavior"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType="Boolean"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="FullScreen"
+		Group="Behavior"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType="Boolean"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="HasBackColor"
+		Visible=true
+		Group="Background"
+		InitialValue="False"
+		Type="Boolean"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="BackColor"
+		Visible=true
+		Group="Background"
+		InitialValue="&hFFFFFF"
+		Type="Color"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Backdrop"
+		Visible=true
+		Group="Background"
+		Type="Picture"
+		EditorType="Picture"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MenuBar"
+		Visible=true
+		Group="Menus"
+		Type="MenuBar"
+		EditorType="MenuBar"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MenuBarVisible"
+		Visible=true
+		Group="Deprecated"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType="Boolean"
+	#tag EndViewProperty
+#tag EndViewBehavior

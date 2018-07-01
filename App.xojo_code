@@ -19,7 +19,7 @@ Inherits Application
 		    Dim dF As New SQLiteDatabase
 		    dF.DatabaseFile = drugF
 		    If dF.CreateDatabaseFile Then
-		      dF.SQLExecute("CREATE TABLE drugs ( id_reference INTEGER PRIMARY KEY, name_generic TEXT, moa TEXT, class TEXT, notes TEXT );")
+		      dF.SQLExecute("CREATE TABLE drugs ( id_reference INTEGER PRIMARY KEY, name_generic TEXT, moa TEXT, classofdrug TEXT, notes TEXT );")
 		      dF.SQLExecute("CREATE TABLE trade_names ( id_reference INTEGER PRIMARY KEY, id_drug_fk INTEGER, name_trade TEXT);")
 		      dF.SQLExecute("CREATE TABLE ind ( id_reference INTEGER PRIMARY KEY, id_drug_fk INTEGER, indication TEXT );")
 		      dF.SQLExecute("CREATE TABLE con ( id_reference INTEGER PRIMARY KEY, id_drug_fk INTEGER, contraindication TEXT);")
@@ -58,11 +58,6 @@ Inherits Application
 
 
 	#tag ViewBehavior
-		#tag ViewProperty
-			Name="showInstructions"
-			Group="Behavior"
-			Type="Integer"
-		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class
 #tag EndClass
