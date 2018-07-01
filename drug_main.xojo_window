@@ -214,6 +214,77 @@ End
 
 #tag WindowCode
 	#tag Method, Flags = &h0
+		Function deleteSelected(name_generic As Text) As Boolean
+		  Dim dbFile As FolderItem
+		  Dim db As New SQLiteDatabase
+		  dbFile = GetFolderItem("drugs.sqlite")
+		  db.DatabaseFile = dbFile
+		  If db.Connect Then
+		    // get drug id
+		    Dim rsID As RecordSet
+		    rsID = db.SQLSelect("SELECT id_reference FROM drugs WHERE name_generic='"+ name_generic +"'")
+		    Dim id As Text = rsID.IdxField(1).StringValue.ToText
+		    
+		    Dim deleteDrug As String = "DELETE FROM drugs WHERE id_reference = '"+ id +"';"
+		    db.SQLExecute(deleteDrug)
+		    If db.Error Then
+		      MsgBox(db.ErrorMessage)
+		    End If 
+		    db.Commit
+		    
+		    Dim deleteTN As String = "DELETE FROM trade_names WHERE id_reference = '"+ id +"';"
+		    db.SQLExecute(deleteTN)
+		    If db.Error Then
+		      MsgBox(db.ErrorMessage)
+		    End If 
+		    db.Commit
+		    
+		    Dim deleteIND As String = "DELETE FROM ind WHERE id_reference = '"+ id +"';"
+		    db.SQLExecute(deleteIND)
+		    If db.Error Then
+		      MsgBox(db.ErrorMessage)
+		    End If 
+		    db.Commit
+		    
+		    Dim deleteCON As String = "DELETE FROM con WHERE id_reference = '"+ id +"';"
+		    db.SQLExecute(deleteCON)
+		    If db.Error Then
+		      MsgBox(db.ErrorMessage)
+		    End If 
+		    db.Commit
+		    
+		    Dim deleteSE As String = "DELETE FROM se WHERE id_reference = '"+ id +"';"
+		    db.SQLExecute(deleteSE)
+		    If db.Error Then
+		      MsgBox(db.ErrorMessage)
+		    End If 
+		    db.Commit
+		    
+		    Dim deleteSC As String = "DELETE FROM sc WHERE id_reference = '"+ id +"';"
+		    db.SQLExecute(deleteSC)
+		    If db.Error Then
+		      MsgBox(db.ErrorMessage)
+		    End If 
+		    db.Commit
+		    
+		    Dim deleteDOS As String = "DELETE FROM dose WHERE id_reference = '"+ id +"';"
+		    db.SQLExecute(deleteDOS)
+		    If db.Error Then
+		      MsgBox(db.ErrorMessage)
+		    End If 
+		    db.Commit
+		    
+		    refreshDrugs
+		    Return True
+		    
+		  Else
+		    Return False
+		  End If
+		  
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub refreshDrugs()
 		  
 		  Dim dbFile As FolderItem
@@ -280,8 +351,15 @@ End
 #tag Events deleteB
 	#tag Event
 		Sub Action()
-		  Dim d As New addDrug
-		  d.Show
+		  If drugsLB.ListIndex = -1 Then
+		    MsgBox ("Error - you must select a drug before you can delete it.")
+		    Return
+		  End If
+		  
+		  Dim p As Text = drugsLB.Cell(drugsLB.ListIndex , 0).ToText
+		  Dim d As Boolean = deleteSelected(p)
+		  
+		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents
