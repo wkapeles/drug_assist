@@ -1,31 +1,31 @@
 #tag Window
-Begin Window drug_main
+Begin Window confirmWindow
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
-   CloseButton     =   True
+   CloseButton     =   False
    Compatibility   =   ""
    Composite       =   False
-   Frame           =   0
+   Frame           =   2
    FullScreen      =   False
    FullScreenButton=   False
    HasBackColor    =   False
-   Height          =   400
+   Height          =   238
    ImplicitInstance=   True
    LiveResize      =   True
    MacProcID       =   0
    MaxHeight       =   32000
-   MaximizeButton  =   True
+   MaximizeButton  =   False
    MaxWidth        =   32000
-   MenuBar         =   1040629759
+   MenuBar         =   0
    MenuBarVisible  =   True
    MinHeight       =   64
-   MinimizeButton  =   True
+   MinimizeButton  =   False
    MinWidth        =   64
    Placement       =   0
-   Resizeable      =   True
-   Title           =   "Paramedic Drug Assistant"
+   Resizeable      =   False
+   Title           =   "Confirm Deletion"
    Visible         =   True
-   Width           =   600
+   Width           =   392
    Begin Label Label1
       AutoDeactivate  =   True
       Bold            =   False
@@ -46,45 +46,31 @@ Begin Window drug_main
       Multiline       =   False
       Scope           =   0
       Selectable      =   False
-      TabIndex        =   2
+      TabIndex        =   0
       TabPanelIndex   =   0
       TabStop         =   True
-      Text            =   "My Drugs"
+      Text            =   "Confirm Record Deletion"
       TextAlign       =   1
       TextColor       =   &c00000000
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   11
+      Top             =   20
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   355
+      Width           =   352
    End
-   Begin Listbox drugsLB
+   Begin Label Label2
       AutoDeactivate  =   True
-      AutoHideScrollbars=   True
       Bold            =   False
-      Border          =   True
-      ColumnCount     =   1
-      ColumnsResizable=   False
-      ColumnWidths    =   "*"
       DataField       =   ""
       DataSource      =   ""
-      DefaultRowHeight=   -1
       Enabled         =   True
-      EnableDrag      =   False
-      EnableDragReorder=   False
-      GridLinesHorizontal=   0
-      GridLinesVertical=   0
-      HasHeading      =   True
-      HeadingIndex    =   -1
-      Height          =   314
-      HelpTag         =   "These are the drugs you have saved.  If this is empty, get to work and enter some drugs!  You can also click on any saved drug and your drug card will be displayed."
-      Hierarchical    =   False
+      Height          =   84
+      HelpTag         =   ""
       Index           =   -2147483648
       InitialParent   =   ""
-      InitialValue    =   "Generic Name	Trade Name"
       Italic          =   False
       Left            =   20
       LockBottom      =   False
@@ -92,41 +78,70 @@ Begin Window drug_main
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
-      RequiresSelection=   False
+      Multiline       =   True
       Scope           =   0
-      ScrollbarHorizontal=   False
-      ScrollBarVertical=   True
-      SelectionType   =   0
-      ShowDropIndicator=   False
-      TabIndex        =   0
+      Selectable      =   False
+      TabIndex        =   1
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "You are attempting to delete a database record.  Click ""DELETE"" to proceed.  Click ""CANCEL"" to return to browsing.  If you delete, the action cannot be undone."
+      TextAlign       =   0
+      TextColor       =   &c00000000
+      TextFont        =   "System"
+      TextSize        =   0.0
+      TextUnit        =   0
+      Top             =   64
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   352
+   End
+   Begin PushButton deleteB
+      AutoDeactivate  =   True
+      Bold            =   False
+      ButtonStyle     =   "0"
+      Cancel          =   False
+      Caption         =   "DELETE"
+      Default         =   False
+      Enabled         =   True
+      Height          =   20
+      HelpTag         =   ""
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   73
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Scope           =   0
+      TabIndex        =   2
       TabPanelIndex   =   0
       TabStop         =   True
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   33
+      Top             =   160
       Transparent     =   False
       Underline       =   False
-      UseFocusRing    =   True
       Visible         =   True
-      Width           =   355
-      _ScrollOffset   =   0
-      _ScrollWidth    =   -1
+      Width           =   80
    End
-   Begin PushButton addDrugB
+   Begin PushButton cancelB
       AutoDeactivate  =   True
       Bold            =   False
       ButtonStyle     =   "0"
       Cancel          =   False
-      Caption         =   "Add Drug"
-      Default         =   False
+      Caption         =   "CANCEL"
+      Default         =   True
       Enabled         =   True
       Height          =   20
-      HelpTag         =   "Click here to add a drug to your list."
+      HelpTag         =   ""
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   437
+      Left            =   238
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -139,234 +154,35 @@ Begin Window drug_main
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   33
+      Top             =   160
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   143
-   End
-   Begin PushButton quitB
-      AutoDeactivate  =   True
-      Bold            =   False
-      ButtonStyle     =   "0"
-      Cancel          =   False
-      Caption         =   "Quit"
-      Default         =   False
-      Enabled         =   True
-      Height          =   20
-      HelpTag         =   ""
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Italic          =   False
-      Left            =   437
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      Scope           =   0
-      TabIndex        =   4
-      TabPanelIndex   =   0
-      TabStop         =   True
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
-      Top             =   359
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   143
-   End
-   Begin PushButton deleteB
-      AutoDeactivate  =   True
-      Bold            =   False
-      ButtonStyle     =   "0"
-      Cancel          =   False
-      Caption         =   "Delete Selected"
-      Default         =   False
-      Enabled         =   True
-      Height          =   20
-      HelpTag         =   "Click here to add a drug to your list."
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Italic          =   False
-      Left            =   437
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      Scope           =   0
-      TabIndex        =   5
-      TabPanelIndex   =   0
-      TabStop         =   True
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
-      Top             =   65
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   143
+      Width           =   80
    End
 End
 #tag EndWindow
 
 #tag WindowCode
-	#tag Method, Flags = &h0
-		Function deleteSelected(name_generic As Text) As Boolean
-		  Dim dbFile As FolderItem
-		  Dim db As New SQLiteDatabase
-		  dbFile = GetFolderItem("drugs.sqlite")
-		  db.DatabaseFile = dbFile
-		  If db.Connect Then
-		    // get drug id
-		    Dim rsID As RecordSet
-		    rsID = db.SQLSelect("SELECT id_reference FROM drugs WHERE name_generic='"+ name_generic +"'")
-		    Dim id As Text = rsID.IdxField(1).StringValue.ToText
-		    
-		    Dim deleteDrug As String = "DELETE FROM drugs WHERE id_reference = '"+ id +"';"
-		    db.SQLExecute(deleteDrug)
-		    If db.Error Then
-		      MsgBox(db.ErrorMessage)
-		    End If 
-		    db.Commit
-		    
-		    Dim deleteTN As String = "DELETE FROM trade_names WHERE id_reference = '"+ id +"';"
-		    db.SQLExecute(deleteTN)
-		    If db.Error Then
-		      MsgBox(db.ErrorMessage)
-		    End If 
-		    db.Commit
-		    
-		    Dim deleteIND As String = "DELETE FROM ind WHERE id_reference = '"+ id +"';"
-		    db.SQLExecute(deleteIND)
-		    If db.Error Then
-		      MsgBox(db.ErrorMessage)
-		    End If 
-		    db.Commit
-		    
-		    Dim deleteCON As String = "DELETE FROM con WHERE id_reference = '"+ id +"';"
-		    db.SQLExecute(deleteCON)
-		    If db.Error Then
-		      MsgBox(db.ErrorMessage)
-		    End If 
-		    db.Commit
-		    
-		    Dim deleteSE As String = "DELETE FROM se WHERE id_reference = '"+ id +"';"
-		    db.SQLExecute(deleteSE)
-		    If db.Error Then
-		      MsgBox(db.ErrorMessage)
-		    End If 
-		    db.Commit
-		    
-		    Dim deleteSC As String = "DELETE FROM sc WHERE id_reference = '"+ id +"';"
-		    db.SQLExecute(deleteSC)
-		    If db.Error Then
-		      MsgBox(db.ErrorMessage)
-		    End If 
-		    db.Commit
-		    
-		    Dim deleteDOS As String = "DELETE FROM dose WHERE id_reference = '"+ id +"';"
-		    db.SQLExecute(deleteDOS)
-		    If db.Error Then
-		      MsgBox(db.ErrorMessage)
-		    End If 
-		    db.Commit
-		    
-		    refreshDrugs
-		    Return True
-		    
-		  Else
-		    Return False
-		  End If
-		  
-		End Function
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Sub refreshDrugs()
-		  
-		  Dim dbFile As FolderItem
-		  Dim db As New SQLiteDatabase
-		  dbFile = GetFolderItem("drugs.sqlite")
-		  db.DatabaseFile = dbFile
-		  If db.Connect Then
-		    // Check for database records.  If none, dialog notifiying user of new test instance
-		    Dim rs As RecordSet
-		    rs = db.SQLSelect("SELECT name_generic FROM drugs ORDER BY name_generic")
-		    
-		    If db.Error Then
-		      MsgBox("Error: " + db.ErrorMessage)
-		      Return
-		    End If
-		    
-		    If rs.RecordCount > 0 Then
-		      drugsLB.DeleteAllRows
-		      While Not rs.EOF
-		        drugsLB.AddRow(rs.IdxField(1).StringValue)
-		        rs.MoveNext
-		      Wend
-		      
-		    Else
-		      drugsLB.DeleteAllRows
-		      Return
-		    End If
-		    
-		  Else
-		    MsgBox("The database couldn't be opened. If this continues, please contact the developer.  Error: " + db.ErrorMessage)
-		    Return
-		  End If
-		  
-		  
-		  
-		  
-		End Sub
-	#tag EndMethod
-
-
 #tag EndWindowCode
 
-#tag Events drugsLB
-	#tag Event
-		Sub Open()
-		  refreshDrugs
-		End Sub
-	#tag EndEvent
-	#tag Event
-		Sub GotFocus()
-		  refreshDrugs
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events addDrugB
-	#tag Event
-		Sub Action()
-		  Dim d As New addDrug
-		  d.Show
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events quitB
-	#tag Event
-		Sub Action()
-		  Quit
-		End Sub
-	#tag EndEvent
-#tag EndEvents
 #tag Events deleteB
 	#tag Event
 		Sub Action()
-		  If drugsLB.ListIndex = -1 Then
-		    MsgBox ("Error - you must select a drug before you can delete it.")
-		    Return
-		  End If
+		  Dim p As Text = drug_main.drugsLB.Cell(drug_main.drugsLB.ListIndex , 0).ToText
+		  Dim d As Boolean = drug_main.deleteSelected(p)
+		  Self.Close
 		  
-		  Dim c As New confirmWindow
-		  c.show
+		  drug_main.show
+		  drug_main.drugsLB.SetFocus
 		  
-		  
-		  
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events cancelB
+	#tag Event
+		Sub Action()
+		  Self.Close
 		End Sub
 	#tag EndEvent
 #tag EndEvents
