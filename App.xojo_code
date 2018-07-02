@@ -45,6 +45,10 @@ Inherits Application
 
 
 	#tag Property, Flags = &h0
+		donateButtonCode As Text = "<formaction=""https://www.paypal.com/cgi-bin/webscr""method=""post""target=""_top""><inputtype=""hidden""name=""cmd""value=""_s-xclick""><inputtype=""hidden""name=""hosted_button_id""value=""SX55W5ECDWZLU""><inputtype=""image""src=""https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif""border=""0""name=""submit""alt=""PayPal - The safer, easier way to pay online!""><imgalt=""""border=""0""src=""https://www.paypalobjects.com/en_US/i/scr/pixel.gif""width=""1""height=""1""></form>"
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		idTargetDrug As Integer
 	#tag EndProperty
 
@@ -65,6 +69,11 @@ Inherits Application
 
 
 	#tag ViewBehavior
+		#tag ViewProperty
+			Name="idTargetDrug"
+			Group="Behavior"
+			Type="Integer"
+		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class
 #tag EndClass

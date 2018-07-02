@@ -221,7 +221,7 @@ Begin Window drugDetail
       Cancel          =   False
       Caption         =   "Update Entry"
       Default         =   False
-      Enabled         =   True
+      Enabled         =   False
       Height          =   20
       HelpTag         =   ""
       Index           =   -2147483648
@@ -279,7 +279,7 @@ Begin Window drugDetail
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   100
+      Width           =   45
    End
    Begin TextField classT
       AcceptTabs      =   False
@@ -298,7 +298,7 @@ Begin Window drugDetail
       HelpTag         =   ""
       Index           =   -2147483648
       Italic          =   False
-      Left            =   116
+      Left            =   70
       LimitText       =   0
       LockBottom      =   False
       LockedInPosition=   False
@@ -322,7 +322,7 @@ Begin Window drugDetail
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
-      Width           =   330
+      Width           =   510
    End
    Begin Label Label4
       AutoDeactivate  =   True
@@ -331,7 +331,7 @@ Begin Window drugDetail
       DataSource      =   ""
       Enabled         =   True
       Height          =   20
-      HelpTag         =   ""
+      HelpTag         =   "Mechanism of action"
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
@@ -357,7 +357,7 @@ Begin Window drugDetail
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   100
+      Width           =   45
    End
    Begin TextField moaT
       AcceptTabs      =   False
@@ -376,7 +376,7 @@ Begin Window drugDetail
       HelpTag         =   ""
       Index           =   -2147483648
       Italic          =   False
-      Left            =   116
+      Left            =   70
       LimitText       =   0
       LockBottom      =   False
       LockedInPosition=   False
@@ -400,7 +400,7 @@ Begin Window drugDetail
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
-      Width           =   330
+      Width           =   510
    End
    Begin Label Label5
       AutoDeactivate  =   True
@@ -409,7 +409,7 @@ Begin Window drugDetail
       DataSource      =   ""
       Enabled         =   True
       Height          =   20
-      HelpTag         =   ""
+      HelpTag         =   "Indications..."
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
@@ -425,7 +425,7 @@ Begin Window drugDetail
       TabIndex        =   10
       TabPanelIndex   =   0
       TabStop         =   True
-      Text            =   "Indications"
+      Text            =   "IND"
       TextAlign       =   0
       TextColor       =   &c00000000
       TextFont        =   "System"
@@ -435,7 +435,7 @@ Begin Window drugDetail
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   100
+      Width           =   45
    End
    Begin Listbox indLB
       AutoDeactivate  =   True
@@ -462,7 +462,7 @@ Begin Window drugDetail
       InitialParent   =   ""
       InitialValue    =   ""
       Italic          =   False
-      Left            =   116
+      Left            =   70
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -485,7 +485,7 @@ Begin Window drugDetail
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
-      Width           =   330
+      Width           =   510
       _ScrollOffset   =   0
       _ScrollWidth    =   -1
    End
@@ -496,7 +496,7 @@ Begin Window drugDetail
       DataSource      =   ""
       Enabled         =   True
       Height          =   20
-      HelpTag         =   ""
+      HelpTag         =   "Contraindications"
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
@@ -512,7 +512,7 @@ Begin Window drugDetail
       TabIndex        =   12
       TabPanelIndex   =   0
       TabStop         =   True
-      Text            =   "Contraindication"
+      Text            =   "CON"
       TextAlign       =   0
       TextColor       =   &c00000000
       TextFont        =   "System"
@@ -522,7 +522,7 @@ Begin Window drugDetail
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   100
+      Width           =   45
    End
    Begin Listbox conLB
       AutoDeactivate  =   True
@@ -549,7 +549,7 @@ Begin Window drugDetail
       InitialParent   =   ""
       InitialValue    =   ""
       Italic          =   False
-      Left            =   116
+      Left            =   70
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -572,7 +572,7 @@ Begin Window drugDetail
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
-      Width           =   330
+      Width           =   510
       _ScrollOffset   =   0
       _ScrollWidth    =   -1
    End
@@ -583,7 +583,7 @@ Begin Window drugDetail
       DataSource      =   ""
       Enabled         =   True
       Height          =   20
-      HelpTag         =   ""
+      HelpTag         =   "Side Effects..."
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
@@ -599,7 +599,7 @@ Begin Window drugDetail
       TabIndex        =   14
       TabPanelIndex   =   0
       TabStop         =   True
-      Text            =   "Side Effects"
+      Text            =   "SE"
       TextAlign       =   0
       TextColor       =   &c00000000
       TextFont        =   "System"
@@ -609,7 +609,7 @@ Begin Window drugDetail
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   100
+      Width           =   45
    End
    Begin Listbox seLB
       AutoDeactivate  =   True
@@ -636,7 +636,7 @@ Begin Window drugDetail
       InitialParent   =   ""
       InitialValue    =   ""
       Italic          =   False
-      Left            =   116
+      Left            =   70
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -659,7 +659,7 @@ Begin Window drugDetail
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
-      Width           =   330
+      Width           =   510
       _ScrollOffset   =   0
       _ScrollWidth    =   -1
    End
@@ -670,7 +670,7 @@ Begin Window drugDetail
       DataSource      =   ""
       Enabled         =   True
       Height          =   20
-      HelpTag         =   ""
+      HelpTag         =   "Dosing Information"
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
@@ -686,7 +686,7 @@ Begin Window drugDetail
       TabIndex        =   16
       TabPanelIndex   =   0
       TabStop         =   True
-      Text            =   "Dosing"
+      Text            =   "DOS"
       TextAlign       =   0
       TextColor       =   &c00000000
       TextFont        =   "System"
@@ -696,7 +696,7 @@ Begin Window drugDetail
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   100
+      Width           =   45
    End
    Begin Listbox dosLB
       AutoDeactivate  =   True
@@ -723,7 +723,7 @@ Begin Window drugDetail
       InitialParent   =   ""
       InitialValue    =   ""
       Italic          =   False
-      Left            =   116
+      Left            =   70
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -746,7 +746,7 @@ Begin Window drugDetail
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
-      Width           =   330
+      Width           =   510
       _ScrollOffset   =   0
       _ScrollWidth    =   -1
    End
@@ -757,7 +757,7 @@ Begin Window drugDetail
       DataSource      =   ""
       Enabled         =   True
       Height          =   20
-      HelpTag         =   ""
+      HelpTag         =   "Personal Notes"
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
@@ -783,7 +783,7 @@ Begin Window drugDetail
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   100
+      Width           =   45
    End
    Begin TextArea notesTA
       AcceptTabs      =   False
@@ -802,7 +802,7 @@ Begin Window drugDetail
       HideSelection   =   True
       Index           =   -2147483648
       Italic          =   False
-      Left            =   116
+      Left            =   70
       LimitText       =   0
       LineHeight      =   0.0
       LineSpacing     =   1.0
@@ -831,7 +831,7 @@ Begin Window drugDetail
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
-      Width           =   330
+      Width           =   510
    End
    Begin Label Label10
       AutoDeactivate  =   True
@@ -840,7 +840,7 @@ Begin Window drugDetail
       DataSource      =   ""
       Enabled         =   True
       Height          =   20
-      HelpTag         =   ""
+      HelpTag         =   "Special Cautions..."
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
@@ -856,7 +856,7 @@ Begin Window drugDetail
       TabIndex        =   20
       TabPanelIndex   =   0
       TabStop         =   True
-      Text            =   "Special Cautions"
+      Text            =   "SC"
       TextAlign       =   0
       TextColor       =   &c00000000
       TextFont        =   "System"
@@ -866,7 +866,7 @@ Begin Window drugDetail
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   100
+      Width           =   45
    End
    Begin Listbox scLB
       AutoDeactivate  =   True
@@ -893,7 +893,7 @@ Begin Window drugDetail
       InitialParent   =   ""
       InitialValue    =   ""
       Italic          =   False
-      Left            =   116
+      Left            =   70
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -916,7 +916,7 @@ Begin Window drugDetail
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
-      Width           =   330
+      Width           =   510
       _ScrollOffset   =   0
       _ScrollWidth    =   -1
    End
@@ -1073,3 +1073,229 @@ End
 		End Sub
 	#tag EndEvent
 #tag EndEvents
+#tag ViewBehavior
+	#tag ViewProperty
+		Name="Name"
+		Visible=true
+		Group="ID"
+		Type="String"
+		EditorType="String"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Interfaces"
+		Visible=true
+		Group="ID"
+		Type="String"
+		EditorType="String"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Super"
+		Visible=true
+		Group="ID"
+		Type="String"
+		EditorType="String"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Width"
+		Visible=true
+		Group="Size"
+		InitialValue="600"
+		Type="Integer"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Height"
+		Visible=true
+		Group="Size"
+		InitialValue="400"
+		Type="Integer"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MinWidth"
+		Visible=true
+		Group="Size"
+		InitialValue="64"
+		Type="Integer"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MinHeight"
+		Visible=true
+		Group="Size"
+		InitialValue="64"
+		Type="Integer"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MaxWidth"
+		Visible=true
+		Group="Size"
+		InitialValue="32000"
+		Type="Integer"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MaxHeight"
+		Visible=true
+		Group="Size"
+		InitialValue="32000"
+		Type="Integer"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Frame"
+		Visible=true
+		Group="Frame"
+		InitialValue="0"
+		Type="Integer"
+		EditorType="Enum"
+		#tag EnumValues
+			"0 - Document"
+			"1 - Movable Modal"
+			"2 - Modal Dialog"
+			"3 - Floating Window"
+			"4 - Plain Box"
+			"5 - Shadowed Box"
+			"6 - Rounded Window"
+			"7 - Global Floating Window"
+			"8 - Sheet Window"
+			"9 - Metal Window"
+			"11 - Modeless Dialog"
+		#tag EndEnumValues
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Title"
+		Visible=true
+		Group="Frame"
+		InitialValue="Untitled"
+		Type="String"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="CloseButton"
+		Visible=true
+		Group="Frame"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType="Boolean"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Resizeable"
+		Visible=true
+		Group="Frame"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType="Boolean"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MaximizeButton"
+		Visible=true
+		Group="Frame"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType="Boolean"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MinimizeButton"
+		Visible=true
+		Group="Frame"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType="Boolean"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="FullScreenButton"
+		Visible=true
+		Group="Frame"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType="Boolean"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Composite"
+		Group="OS X (Carbon)"
+		InitialValue="False"
+		Type="Boolean"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MacProcID"
+		Group="OS X (Carbon)"
+		InitialValue="0"
+		Type="Integer"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="ImplicitInstance"
+		Visible=true
+		Group="Behavior"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType="Boolean"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Placement"
+		Visible=true
+		Group="Behavior"
+		InitialValue="0"
+		Type="Integer"
+		EditorType="Enum"
+		#tag EnumValues
+			"0 - Default"
+			"1 - Parent Window"
+			"2 - Main Screen"
+			"3 - Parent Window Screen"
+			"4 - Stagger"
+		#tag EndEnumValues
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Visible"
+		Visible=true
+		Group="Behavior"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType="Boolean"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="LiveResize"
+		Group="Behavior"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType="Boolean"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="FullScreen"
+		Group="Behavior"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType="Boolean"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="HasBackColor"
+		Visible=true
+		Group="Background"
+		InitialValue="False"
+		Type="Boolean"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="BackColor"
+		Visible=true
+		Group="Background"
+		InitialValue="&hFFFFFF"
+		Type="Color"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Backdrop"
+		Visible=true
+		Group="Background"
+		Type="Picture"
+		EditorType="Picture"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MenuBar"
+		Visible=true
+		Group="Menus"
+		Type="MenuBar"
+		EditorType="MenuBar"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MenuBarVisible"
+		Visible=true
+		Group="Deprecated"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType="Boolean"
+	#tag EndViewProperty
+#tag EndViewBehavior

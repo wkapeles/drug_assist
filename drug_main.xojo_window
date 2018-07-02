@@ -273,6 +273,38 @@ Begin Window drug_main
       Visible         =   True
       Width           =   143
    End
+   Begin PushButton aboutB
+      AutoDeactivate  =   True
+      Bold            =   False
+      ButtonStyle     =   "0"
+      Cancel          =   False
+      Caption         =   "About"
+      Default         =   False
+      Enabled         =   True
+      Height          =   20
+      HelpTag         =   ""
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   387
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Scope           =   0
+      TabIndex        =   8
+      TabPanelIndex   =   0
+      TabStop         =   True
+      TextFont        =   "System"
+      TextSize        =   0.0
+      TextUnit        =   0
+      Top             =   302
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   143
+   End
 End
 #tag EndWindow
 
@@ -477,6 +509,14 @@ End
 		  Dim d As New drugDetail
 		  d.show
 		  
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events aboutB
+	#tag Event
+		Sub Action()
+		  Dim a As New About
+		  a.Show
 		End Sub
 	#tag EndEvent
 #tag EndEvents
