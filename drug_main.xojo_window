@@ -218,7 +218,7 @@ Begin Window drug_main
       Default         =   False
       Enabled         =   False
       Height          =   20
-      HelpTag         =   "Click here to activate the flash card testing function.  Random questions about your drugs will be presented.  You will think through the answer and then click ""Check"" to see if you are correct.  Examples of questions include:\n\n1. What are the indications for metoprolol?\n\n2. What is the MOA of albuterol?"
+      HelpTag         =   "Click here to activate the flash card testing function.  Random questions about your drugs will be presented.  You will think through the answer and then click ""Check"" to see if you are correct.  Examples of questions include:\n\n1. What are the indications for metoprolol? \n\n2. What is the MOA of albuterol?\n\n3. What is the dosing for fentanyl citrate?\n\nThis is a good tool to make you think about portions of your drug knowlege in isolation from the card itself.  Wait till you try it...it's not easy."
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
@@ -469,14 +469,6 @@ End
 #tag Events flashCardB
 	#tag Event
 		Sub Action()
-		  If drugsLB.ListIndex = -1 Then
-		    MsgBox ("Error - you must select a drug before you can delete it.")
-		    Return
-		  End If
-		  
-		  Dim c As New confirmWindow
-		  c.show
-		  
 		  
 		  
 		End Sub
