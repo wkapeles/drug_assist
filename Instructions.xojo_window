@@ -1,5 +1,5 @@
 #tag Window
-Begin Window About
+Begin Window Instructions
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
    CloseButton     =   False
@@ -23,7 +23,7 @@ Begin Window About
    MinWidth        =   64
    Placement       =   0
    Resizeable      =   False
-   Title           =   "About Drug Assistant"
+   Title           =   "Instructions"
    Visible         =   True
    Width           =   600
    Begin PushButton PushButton1
@@ -116,7 +116,7 @@ Begin Window About
       TabIndex        =   2
       TabPanelIndex   =   0
       TabStop         =   True
-      Text            =   "IMPORTANT: Read the instructions.  This app was written in a weekend for  expediency and end-use efficacy, not awesome user experience.  There are some quirks to the interface that you must know if you want to easily use this app! \n\nThis app was written by Bill Kapeles (soon to be NRP).  Copyright 2018.  All Rights Reserved.  That said, it's yours' to do with as you like.  It comes pre-loaded with the 70 or so NREMT drugs paramedics are required to know, but you can delete them all and create your own entries.  Use it as you will.  Just don't sell it to anyone.  \n\nThis app grew out of my own need during paramedic school.  I found no ""paramedic focused"" apps out there that did what I wanted them to do with regard to learning my drugs - so I made one.  The nerd is strong with me.  It helped me immensely during my school, and I hope it helps you, too.  Please drop me a line with any suggestions on how to make it better or compliments!  You can skip the flaming letters of hatred, of course.  (an iOS and Android version are already in the works, so you can skip that suggestion!)\n\nI want to help aspiring medics succeed without having to spend any more of their hard-earned money.  That's why this app will always be free to anyone who wants it.  I appreciate donations, of course, as that money buys me time to improve the app and pay for web hosting and that sort of thing.  So if you're inclined to donate, it's certainly appreciated.  A donation button is below.\n\nAbout me:  I'm a computer programmer - duh - who is also an AEMT in Las Vegas (soon to be a medic).  I love working EMS but I'm too old to do it full-time.  My wife jokes that it's my mid-life crisis...along with motorcycles...and wanting to hike the PCT...and wanting to move to Costa Rica...well, you get the idea.\n\nI hope this app helps you on your journey.  Study hard.  Take medicine seriously.  Someone's life will depend on you one day.  Primum non nocere (but don't take any shit, either).  Stay safe.\n\nBill\n\n"
+      Text            =   "This app is designed to allow the user to rapidly enter new drugs and update existing ones.  It was also created in less than 40 hours of work and resulted in zero revenue.  For that reason, it's a bit quirky.  Follow these instructions and you'll do fine though.\n\nTo add drugs: use comma separation on all fields.  THIS IS IMPORTANT.  This gets around having to enter an indication and hit update, and enter another indication and hit update, etc.  You just type out indications, or whatever, with commas in between and the entries will be automatically parsed into the database.  This is a feature, not a bug.   Example of contraindications to enter: ""decapitation,exsanguination,herpes,gonnorhea,meth mites,substance abuse"".  Get the idea?  Every comma = a new database record.\n\nWhen editing a drug, hit the add button to create new entries, or highlight the existing entry you want to edit and click the edit button.\n\nEverything else is pretty self-explanatory. I'm sorry this is such a cumbersome affair, but then again, it's free.  If you want a custom drug app for yourself with all kinds of nifty features, give me a call (credit card required)!"
       TextAlign       =   0
       TextColor       =   &c00000000
       TextFont        =   "System"

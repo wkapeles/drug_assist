@@ -305,6 +305,38 @@ Begin Window drug_main
       Visible         =   True
       Width           =   143
    End
+   Begin PushButton instB
+      AutoDeactivate  =   True
+      Bold            =   False
+      ButtonStyle     =   "0"
+      Cancel          =   False
+      Caption         =   "Instructions"
+      Default         =   False
+      Enabled         =   True
+      Height          =   20
+      HelpTag         =   "Click here to learn how to use the app!"
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   387
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Scope           =   0
+      TabIndex        =   9
+      TabPanelIndex   =   0
+      TabStop         =   True
+      TextFont        =   "System"
+      TextSize        =   0.0
+      TextUnit        =   0
+      Top             =   277
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   143
+   End
 End
 #tag EndWindow
 
@@ -505,6 +537,14 @@ End
 	#tag EndEvent
 #tag EndEvents
 #tag Events aboutB
+	#tag Event
+		Sub Action()
+		  Dim a As New About
+		  a.Show
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events instB
 	#tag Event
 		Sub Action()
 		  Dim a As New About
