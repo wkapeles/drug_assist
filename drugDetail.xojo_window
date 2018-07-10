@@ -1052,11 +1052,9 @@ End
 		        data = rsTRA.IdxField(1).StringValue +"  "
 		        rsTRA.MoveNext
 		      Wend
-		    Else
-		      MsgBox("Drug detail loading error.  Exiting.")
-		      Return False
+		      tradeNamesT.Text = data
 		    End If
-		    tradeNamesT.Text = data
+		    
 		    
 		    
 		    Return True

@@ -466,6 +466,11 @@ End
 		  refreshDrugs
 		End Sub
 	#tag EndEvent
+	#tag Event
+		Sub DoubleClick()
+		  detailViewB.Push
+		End Sub
+	#tag EndEvent
 #tag EndEvents
 #tag Events addDrugB
 	#tag Event
@@ -547,7 +552,7 @@ End
 #tag Events instB
 	#tag Event
 		Sub Action()
-		  Dim a As New About
+		  Dim a As New Instructions
 		  a.Show
 		End Sub
 	#tag EndEvent
