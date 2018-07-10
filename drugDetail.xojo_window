@@ -1041,6 +1041,24 @@ End
 		      Return False
 		    End If
 		    
+		    
+		    // load Trade Names
+		    Dim rsTRA As RecordSet
+		    Dim data As String
+		    rsTRA = db.SQLSelect("SELECT name_trade FROM trade_names WHERE id_drug_fk='"+ app.idTargetDrug.ToText +"';")
+		    If rsTRA.RecordCount > 0 Then
+		      tradeNamesT.Text = ""
+		      While Not rsTRA.EOF
+		        data = rsTRA.IdxField(1).StringValue +"  "
+		        rsTRA.MoveNext
+		      Wend
+		    Else
+		      MsgBox("Drug detail loading error.  Exiting.")
+		      Return False
+		    End If
+		    tradeNamesT.Text = data
+		    
+		    
 		    Return True
 		    
 		  Else
